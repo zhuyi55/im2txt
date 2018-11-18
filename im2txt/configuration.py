@@ -34,7 +34,7 @@ class ModelConfig(object):
 
     # Approximate number of values per input shard. Used to ensure sufficient
     # mixing between shards in training.
-    self.values_per_input_shard = 2300
+    self.values_per_input_shard = 3750
     # Minimum number of shards to keep in the input queue.
     self.input_queue_capacity_factor = 2
     # Number of threads for prefetching SequenceExample protos.
@@ -50,7 +50,7 @@ class ModelConfig(object):
     # for differences between tokenizer versions used in preprocessing. There is
     # no harm in using a value greater than the actual vocab size, but using a
     # value less than the actual vocab size will result in an error.
-    self.vocab_size = 12000
+    self.vocab_size = 3000
 
     # Number of threads for image preprocessing. Should be a multiple of 2.
     self.num_preprocess_threads = 4
@@ -84,7 +84,7 @@ class TrainingConfig(object):
   def __init__(self):
     """Sets the default training hyperparameters."""
     # Number of examples per epoch of training data.
-    self.num_examples_per_epoch = 586363
+    self.num_examples_per_epoch = 30000
 
     # Optimizer for training the model.
     self.optimizer = "SGD"
