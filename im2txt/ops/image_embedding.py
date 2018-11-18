@@ -23,7 +23,7 @@ from __future__ import print_function
 import tensorflow as tf
 
 from tensorflow.contrib.slim.python.slim.nets.inception_v3 import inception_v3_base
-from nets.inception_v4 import inception_v4_base
+from tf.contrib.slim.nets.inception_v4 import inception_v4_base
 
 slim = tf.contrib.slim
 
