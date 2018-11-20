@@ -76,6 +76,8 @@ class ModelConfig(object):
 
     # If < 1.0, the dropout keep probability applied to LSTM variables.
     self.lstm_dropout_keep_prob = 0.7
+	
+	self.cnn_model = 'InceptionV4'
 
 
 class TrainingConfig(object):
