@@ -186,7 +186,7 @@ class ShowAndTellModel(object):
           is_training=self.is_training())
       self.inception_variables = tf.get_collection(
           tf.GraphKeys.GLOBAL_VARIABLES, scope="InceptionV4")
-    else if self.config.cnn_model == "InceptionResnetV2":
+    elif self.config.cnn_model == "InceptionResnetV2":
       inception_output = image_embedding.inception_resnet_v2(
           self.images,
           trainable=self.train_inception,
