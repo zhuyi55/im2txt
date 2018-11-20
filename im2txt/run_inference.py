@@ -38,6 +38,8 @@ tf.flags.DEFINE_string("vocab_file", "", "Text file containing the vocabulary.")
 tf.flags.DEFINE_string("input_files", "",
                        "File pattern or comma-separated list of file patterns "
                        "of image files.")
+tf.flags.DEFINE_string("cnn_model", "InceptionV3",
+                        "The cnn model name, for image input.")
 
 tf.logging.set_verbosity(tf.logging.INFO)
 
@@ -47,7 +49,9 @@ def main(_):
   g = tf.Graph()
   with g.as_default():
     model = inference_wrapper.InferenceWrapper()
-    restore_fn = model.build_graph_from_config(configuration.ModelConfig(),
+	model_config = configuration.ModelConfig()
+    model_config.cnn_model = FLAGS.cnn_model
+    restore_fn = model.build_graph_from_config(model_config,
                                                FLAGS.checkpoint_path)
   g.finalize()
 
