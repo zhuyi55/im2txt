@@ -32,12 +32,14 @@ from im2txt.inference_utils import vocabulary
 class run_inference_api:
   tf.logging.set_verbosity(tf.logging.INFO)
   
-  def __init__(self, checkpoint_path='', vocab_file=''):
+  def __init__(self, checkpoint_path='', vocab_file='', cnn_model=''):
     # Build the inference graph.
     g = tf.Graph()
     with g.as_default():
       model = inference_wrapper.InferenceWrapper()
-      restore_fn = model.build_graph_from_config(configuration.ModelConfig(),
+      model_config = configuration.ModelConfig()
+      model_config.cnn_model = cnn_model
+      restore_fn = model.build_graph_from_config(model_config,
                                                  checkpoint_path)
     g.finalize()
     

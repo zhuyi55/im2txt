@@ -49,7 +49,7 @@ def main(_):
   g = tf.Graph()
   with g.as_default():
     model = inference_wrapper.InferenceWrapper()
-	model_config = configuration.ModelConfig()
+    model_config = configuration.ModelConfig()
     model_config.cnn_model = FLAGS.cnn_model
     restore_fn = model.build_graph_from_config(model_config,
                                                FLAGS.checkpoint_path)
